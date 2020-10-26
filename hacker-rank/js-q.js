@@ -46,3 +46,26 @@ function getLetter(s) {
   }
   return letter;
 }
+
+/*
+Objective
+
+Complete the getSecondLargest function in the editor below. It has one parameter: an array, nums, of n numbers. The function must find and return the second largest number in nums.
+*/
+
+function getSecondLargest(nums) {
+  // Complete the function
+  let secondLargest = 0;
+  nums.sort((a, b) => b - a);
+  if (nums[1] < nums[0]) {
+    secondLargest = nums[1];
+  } else {
+    for (let i = 1; i < nums.length; ++i) {
+      if (nums[i + 1] < nums[i]) {
+        secondLargest = nums[i + 1];
+        break;
+      }
+    }
+  }
+  return secondLargest;
+}
